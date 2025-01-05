@@ -1,0 +1,18 @@
+"Import of cJSON into bazel"
+module(name = "cjson")
+
+git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+git_repository(
+    name = "cJSON-external",
+    remote = "https://github.com/DaveGamble/cJSON.git",
+    commit = "12c4bf1986c288950a3d06da757109a6aa1ece38",
+    build_file_content = """
+cc_library(
+    name = "cJSON",
+    srcs = ["cJSON.c"],
+    hdrs = ["cJSON.h"],
+    includes = ["."],
+    visibility = ["//visibility:public"],
+)
+""",
+)
