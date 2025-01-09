@@ -3,6 +3,8 @@ module(name = "cjson")
 
 bazel_dep(name = "rules_cc", version = "0.1.0")
 
+bazel_dep(name = "rules_foo")
+
 git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 git_repository(
     name = "cJSON-external",
